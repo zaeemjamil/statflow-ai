@@ -4,7 +4,14 @@
 
 StatFlow AI is an automated statistical analysis workflow that transforms an uploaded dataset into a structured analytical report, AI-generated business insights, a professionally formatted PDF report, and a shareable Google Drive link.
 
-The current implementation is built with **n8n workflow automation**, **custom Python calculations**, **OpenRouter AI**, **PDFPipe**, and **Google Drive**.
+The current implementation is built with:
+
+- **n8n** for workflow automation
+- **Python Native Code** for statistical calculations and machine learning
+- **OpenRouter** for AI-powered interpretation
+- **HTML/CSS** for report design
+- **PDFPipe** for PDF generation
+- **Google Drive** for report storage and sharing
 
 ---
 
@@ -44,7 +51,12 @@ Users upload a structured dataset through an n8n Form.
 
 ### Data Preparation
 
-The workflow performs basic preprocessing including duplicate detection, missing-value filtering, and preparation of numerical data for analysis.
+The workflow performs basic preprocessing including:
+
+- Duplicate detection
+- Missing-value filtering
+- Numeric data preparation
+- Removal of rows that fail required analysis conditions
 
 ### Statistical Analysis
 
@@ -58,11 +70,24 @@ The current Python layer calculates:
 - Maximum
 - Correlations
 
+### Correlation Analysis
+
+The published sample identifies the following relationships:
+
+| Variable Pair | Correlation |
+|---|---:|
+| Unit Price vs Revenue | 0.69 |
+| Units Sold vs Revenue | 0.504 |
+| Revenue vs Profit | 0.438 |
+| Advertising Spend vs Profit | -0.37 |
+| Unit Price vs Profit | 0.329 |
+| Discount vs Revenue | -0.108 |
+
 ### Machine Learning
 
 The current version implements **Multiple Linear Regression** using custom Python matrix operations.
 
-It includes:
+The workflow includes:
 
 - 80/20 train-test split
 - Regression coefficients
@@ -72,6 +97,8 @@ It includes:
 - RMSE
 - R²
 - Sample predictions
+
+The current implementation does not use scikit-learn.
 
 ### AI-Powered Interpretation
 
@@ -88,16 +115,28 @@ The AI is instructed to use only the supplied analytical results and avoid inven
 
 ### Professional PDF Reporting
 
-The workflow converts the analysis into a styled HTML report and generates a PDF using PDFPipe.
+The workflow converts the AI analysis into a styled HTML report and generates a PDF using PDFPipe.
+
+The report includes:
+
+- Branded cover
+- Executive summary
+- KPI cards
+- Statistical findings
+- Correlation tables
+- Business insights
+- Risks
+- Recommendations
+- Final business conclusion
 
 ### Google Drive Delivery
 
 After PDF generation:
 
 1. The PDF is uploaded to Google Drive.
-2. The file receives public viewer permission.
+2. The file is given viewer access through link sharing.
 3. A shareable Google Drive URL is generated.
-4. The final form displays the report link.
+4. The final form displays the report link to the user.
 
 ---
 
@@ -118,38 +157,38 @@ Remove Duplicates
   ▼
 Filter / Data Quality
   │
-  ├───────────────┐
-  ▼               ▼
-Statistical     Machine
-Analysis        Learning
-  │               │
-  └───────┬───────┘
-          ▼
-        Merge
-          │
-          ▼
-     OpenRouter AI
-          │
-          ▼
-   Python Final Report
-          │
-          ▼
- Format Report for PDF
-          │
-          ▼
+  ├──────────────────┐
+  ▼                  ▼
+Statistical        Machine
+Analysis           Learning
+  │                  │
+  └────────┬─────────┘
+           ▼
+         Merge
+           │
+           ▼
+      OpenRouter AI
+           │
+           ▼
+    Python Final Report
+           │
+           ▼
+   Format Report for PDF
+           │
+           ▼
  Generate HTML Template
-          │
-          ▼
-       PDFPipe
-          │
-          ▼
+           │
+           ▼
+        PDFPipe
+           │
+           ▼
      Google Drive
-          │
-          ▼
-      Share File
-          │
-          ▼
-   Create PDF Link
-          │
-          ▼
-    Final Form Result
+           │
+           ▼
+       Share File
+           │
+           ▼
+    Create PDF Link
+           │
+           ▼
+     Final Form Result
