@@ -14,6 +14,13 @@ The current implementation is built with:
 - **Google Drive** for report storage and sharing
 
 ---
+## Live Demo
+
+Try the published StatFlow AI workflow:
+
+**[Launch StatFlow AI](https://zaeemjamil.app.n8n.cloud/form/31aac902-c6d2-4b42-8d81-6a739b009891)**
+
+Upload a CSV dataset and the workflow will automatically generate the statistical analysis, AI insights, PDF report, and shareable report link.
 
 ## Demo Output
 
